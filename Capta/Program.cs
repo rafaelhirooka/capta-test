@@ -1,6 +1,12 @@
+using Capta.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<CaptaContext>(options =>
+  options.UseSqlServer(builder.Configuration.GetConnectionString("CaptaContext")));
 
 builder.Services.AddControllersWithViews();
 
