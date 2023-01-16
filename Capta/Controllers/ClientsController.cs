@@ -5,15 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Capta.Controllers
 {
-  [Route("api/clients")]
+  [Route("api/[controller]")]
   [ApiController]
   //[Authorize]
   public class ClientsController : ControllerBase
   {
     private readonly ClientService _clientService;
-    public ClientsController(ClientService clientService) 
+    private readonly ClientSituationService _clientSituationService;
+    public ClientsController(ClientService clientService, ClientSituationService clientSituationService) 
     {
       _clientService = clientService;
+      _clientSituationService = clientSituationService;
     }
 
     [HttpGet]
@@ -46,7 +48,7 @@ namespace Capta.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Client client)
+    public async Task<IActionResult> Create(ClientCreateDTO client)
     {
       try
       {

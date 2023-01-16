@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 
-import {Client} from './pages/Client/Client';
+import {Client} from './pages/Client';
 
 import {DefaultLayout} from './layouts/DefaultLayout';
 

@@ -25,12 +25,12 @@ namespace Capta.Services
       return client;
     }
 
-    public async Task<Client> StoreAsync(Client client)
+    public async Task<Client> StoreAsync(ClientCreateDTO client)
     {
       var newItem = new Client
       {
         Name = client.Name,
-        Cpf = client.Cpf,
+        Document = client.Document,
         Gender = client.Gender,
         IdClientSituation = client.IdClientSituation,
         IdClientType = client.IdClientType,
@@ -49,7 +49,7 @@ namespace Capta.Services
 
       if (existingItem is null) throw new ApplicationException("Item not found");
 
-      existingItem.Cpf = client.Cpf ?? existingItem.Cpf;
+      existingItem.Document = client.Document ?? existingItem.Document;
       existingItem.Name = client.Name ?? existingItem.Name;
       existingItem.IdClientType = client.IdClientType ?? existingItem.IdClientType;
       existingItem.IdClientSituation = client.IdClientSituation ?? existingItem.IdClientSituation;

@@ -6,6 +6,8 @@ import { Router } from './Router';
 
 import {GlobalStyle} from './styles/global';
 
+import 'devextreme/dist/css/dx.material.blue.dark.css';
+
 export function App() {
   return (
     <BrowserRouter>

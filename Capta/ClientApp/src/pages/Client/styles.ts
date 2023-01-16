@@ -6,7 +6,3 @@ export const Container = styled.div`
   align-items: center;
   padding: 30px;
 `;
-
-export const Table = styled.table`
-  
-`;

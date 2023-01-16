@@ -3,6 +3,7 @@ using Capta.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capta.Migrations
 {
     [DbContext(typeof(CaptaContext))]
-    partial class CaptaContextModelSnapshot : ModelSnapshot
+    [Migration("20230116223309_SeedClientTables")]
+    partial class SeedClientTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,9 +31,9 @@ namespace Capta.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Document")
+                    b.Property<string>("Cpf")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
                         .IsRequired()
@@ -48,9 +50,6 @@ namespace Capta.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Document")
-                        .IsUnique();
 
                     b.HasIndex("IdClientSituation");
 
