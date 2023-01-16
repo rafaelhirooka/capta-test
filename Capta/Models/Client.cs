@@ -17,4 +17,13 @@ namespace Capta.Models
     [ForeignKey("IdClientSituation")]
     public ClientSituation ClientSituation { get; set; }
   }
+
+  public class ClientUpdateDTO
+  {
+    public string Name { get; set; }
+    public string Cpf { get; set; }
+    public string Gender { get; set; }
+    public int? IdClientType { get; set; }
+    public int? IdClientSituation { get; set; }
+  }
 }

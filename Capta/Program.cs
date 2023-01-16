@@ -1,4 +1,5 @@
 using Capta.Data;
+using Capta.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<CaptaContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("CaptaContext")));
+
+builder.Services.AddTransient<ClientService, ClientService>();
 
 builder.Services.AddControllersWithViews();
 
