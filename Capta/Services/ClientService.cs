@@ -18,6 +18,13 @@ namespace Capta.Services
       return clients;
     }
 
+    public async Task<Client> GetAsync(int id)
+    {
+      var client = await _context.Clients.FirstOrDefaultAsync(x => x.Id == id);
+
+      return client;
+    }
+
     public async Task<Client> StoreAsync(Client client)
     {
       var newItem = new Client
